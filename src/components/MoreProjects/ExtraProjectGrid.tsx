@@ -110,15 +110,15 @@ export const ExtraProjectGrid = ({ projects }: ProjectGridProps) => {
                     >
                         {/* Video container - positioned side by side with proper spacing and sizing */}
                         <div className="mb-6 sm:mb-8 flex flex-col sm:flex-row justify-between items-start gap-4 sm:gap-6">
-                            <video
+                            {/* <video
                                 src="/featured-projects/jivika.mp4"
                                 className="w-full sm:w-[45%] md:w-[42%] lg:w-[40%] h-auto rounded-xl shadow-lg flex-shrink-0"
                                 autoPlay
                                 loop
                                 muted
-                            />
+                            /> */}
                             <video
-                                src="/featured-projects/web3Wallet.mp4"
+                                src="/featured-projects/stellar.mp4"
                                 className="w-full sm:w-[52%] md:w-[55%] lg:w-[58%] h-auto rounded-xl shadow-lg flex-shrink-0"
                                 autoPlay
                                 loop
