@@ -37,7 +37,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hi, I'm Anamika",
+  title: "Hi, I'm Nishant Singh",
   description: "Developing things that makes sense.",
 };
 

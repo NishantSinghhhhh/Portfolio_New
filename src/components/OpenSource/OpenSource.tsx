@@ -30,13 +30,7 @@ function OpenSource() {
               index={index}
             />
             
-            {/* {index === 0 && (
-              <ContributionLinksCard
-                githubUrl="https://github.com/Anamika1608/my-oss-contributions" 
-                docUrl="https://docs.google.com/document/d/1Rnlqb7fQ8YahFWe1r-_R1ufJh5j8e6CJzo4phvOBpGg/edit?usp=sharing"
-                index={index + 0.5} 
-              />
-            )} */}
+
           </React.Fragment>
         ))}
       </div>

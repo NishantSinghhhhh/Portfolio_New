@@ -19,14 +19,14 @@ export function Header() {
             <div className="site-container relative flex items-center justify-between py-4">
                 {/* Left side - Logo */}
                 <div className="flex items-center">
-                    {/* <img
+                    <img
                         decoding="async"
                         sizes="107px"
                         srcSet="https://framerusercontent.com/images/3lYPMe8OoTsaZYercDHn5VshvGs.gif?scale-down-to=512 512w,https://framerusercontent.com/images/3lYPMe8OoTsaZYercDHn5VshvGs.gif 747w"
                         src="https://framerusercontent.com/images/3lYPMe8OoTsaZYercDHn5VshvGs.gif"
                         alt="Logo"
                         className=""
-                    /> */}
+                    />
                 </div>
 
                 {/* Right side - Navigation */}
@@ -45,7 +45,7 @@ export function Header() {
                         </div>
 
                         <Link
-                            href="https://cal.com/anamikaagg"
+                            href="https://cal.com/nishant-singh-qce4sn/30min"
                             className={`relative text-sm font-jakarta transition-all duration-300 px-6 py-3 rounded-full flex items-center group ${
                                 isHovered 
                                     ? 'text-white shadow-2xl transform scale-105' 

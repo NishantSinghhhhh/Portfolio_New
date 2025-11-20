@@ -8,7 +8,9 @@ interface ProjectGridProps {
 }
 
 export const ProjectGrid = ({ projects }: ProjectGridProps) => {
-  const displayProjects = projects.slice(0, 4);
+  // ✅ Use all projects now
+  const displayProjects = projects;
+
   const containerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const [isStacked, setIsStacked] = useState(false);
@@ -21,23 +23,24 @@ export const ProjectGrid = ({ projects }: ProjectGridProps) => {
       const containerRect = containerRef.current.getBoundingClientRect();
       const sectionRect = sectionRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      
-      // Start stacking when container reaches the top of viewport
+
       const stackThreshold = windowHeight * 0.3;
-      
-      // Only be sticky while we're within the container bounds
-      const isInStackZone = containerRect.top <= stackThreshold && 
-                           containerRect.bottom > windowHeight * 0.7 &&
-                           sectionRect.top <= stackThreshold;
-      
+
+      const isInStackZone =
+        containerRect.top <= stackThreshold &&
+        containerRect.bottom > windowHeight * 0.7 &&
+        sectionRect.top <= stackThreshold;
+
       setIsStacked(isInStackZone);
-      
-      // Calculate stack progress based on container scroll position
+
       if (isInStackZone) {
         const containerHeight = containerRect.height;
         const scrollableArea = containerHeight - windowHeight;
         const scrolled = Math.max(0, stackThreshold - containerRect.top);
-        const progress = Math.max(0, Math.min(1, scrolled / Math.max(scrollableArea * 0.3, 100)));
+        const progress = Math.max(
+          0,
+          Math.min(1, scrolled / Math.max(scrollableArea * 0.3, 100))
+        );
         setStackProgress(progress);
       } else {
         setStackProgress(0);
@@ -45,40 +48,36 @@ export const ProjectGrid = ({ projects }: ProjectGridProps) => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial call
-    
+    handleScroll();
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Bento grid layout configuration
-   const bentoLayouts = [
+  // Bento grid layout configuration for first few cards
+  const bentoLayouts = [
     {
-      // Project 1 - Safire (top left rectangle)
       className: "col-span-2 row-span-1",
-      transform: 3
+      transform: 3,
     },
     {
-      // Project 2 - Echosphere (bottom left rectangle)
-      className: "col-span-2 row-span-1", 
-      transform: 6
-    },
-    {
-      // Project 3 - Mobile Apps (right tall card, spans 2 rows)
-      className: "col-span-2 row-span-2",
-      transform: 4
+      className: "col-span-2 row-span-1",
+      transform: 6,
     },
     {
       className: "col-span-2 row-span-2",
-      transform: 4
-    }
+      transform: 4,
+    },
+    {
+      className: "col-span-2 row-span-2",
+      transform: 4,
+    },
   ];
 
   return (
-    <div 
+    <div
       ref={containerRef}
       className="relative site-container"
     >
-      {/* Sticky section with stacking effect */}
       <section
         ref={sectionRef}
         className={`
@@ -95,16 +94,15 @@ export const ProjectGrid = ({ projects }: ProjectGridProps) => {
           transformOrigin: 'center top',
         }}
       >
-        <div 
-        >
-          {/* Responsive section header */}
-          <div 
+        <div>
+          {/* Header */}
+          <div
             className="flex justify-start mb-3 sm:mb-4 transition-transform duration-700 ease-out"
             style={{
               transform: `translateY(${stackProgress * 5}px)`,
             }}
           >
-            <div 
+            <div
               className="border border-black rounded-full px-3 sm:px-4 py-1 
                          transition-all duration-700 ease-out"
               style={{
@@ -118,18 +116,18 @@ export const ProjectGrid = ({ projects }: ProjectGridProps) => {
               </h2>
             </div>
           </div>
-          
-          {/* Responsive container with proper margins */}
-          <div 
+
+          {/* Content */}
+          <div
             className="pb-8 sm:pb-10 transition-transform duration-700 ease-out"
             style={{
               transform: `translateY(${stackProgress * 8}px)`,
             }}
           >
-            {/* Mobile: Flex Column Layout */}
-            <div className="flex flex-col gap-4 sm:hidden">
+            {/* Mobile: simple column */}
+            <div className="flex flex-col gap-6 sm:hidden">
               {displayProjects.map((project, index) => (
-                <div 
+                <div
                   key={`mobile-${index}`}
                   className="w-full transition-all duration-700 ease-out"
                   style={{
@@ -141,18 +139,23 @@ export const ProjectGrid = ({ projects }: ProjectGridProps) => {
               ))}
             </div>
 
-            {/* Desktop/Tablet: Bento Grid Layout */}
-            <div className="hidden sm:grid grid-cols-4 gap-4 sm:gap-6">
-              {/* Projects with bento layout and staggered animations */}
+            {/* Desktop/Tablet: Bento Grid */}
+            <div className="hidden sm:grid grid-cols-4 gap-8">
               {displayProjects.map((project, index) => {
-                const layout = bentoLayouts[index];
-                
+                const layout =
+                  bentoLayouts[index] ||
+                  {
+                    // fallback layout for extra projects
+                    className: "col-span-4 sm:col-span-2",
+                    transform: 2 + index,
+                  };
+
                 return (
-                  <div 
+                  <div
                     key={index}
-                    className={`${layout?.className} transition-all duration-700 ease-out`}
+                    className={`${layout.className} transition-all duration-700 ease-out`}
                     style={{
-                      transform: `translateY(${stackProgress * layout?.transform}px)`,
+                      transform: `translateY(${stackProgress * layout.transform}px)`,
                     }}
                   >
                     <div className="w-full h-full">

@@ -1,6 +1,6 @@
 import React from 'react'
 import { ExtraProjectGrid } from './ExtraProjectGrid'
-import { projectData } from '../FeaturedProjects/FeaturedProjects'
+import { projectData } from './ProjectData'
 
 function MoreProjects() {
     return (

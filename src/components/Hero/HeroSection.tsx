@@ -5,7 +5,7 @@ export function HeroSection() {
     <section className="site-container max-w-4xl pb-10 sm:pb-16 font-crimson text-2xl sm:text-3xl md:text-4xl tracking-tight leading-snug">
 
       <h1 className="font-medium">
-        Hi, I'm Anamika Aggarwal
+        Hi, I'm Nishant Singh
       </h1>
 
       {/* First Paragraph */}
@@ -36,7 +36,7 @@ export function HeroSection() {
       <p className="font-medium mb-6 sm:mb-8">
         I've worked with
         <span className="bg-[#E9FFD9] text-[#2B7500] px-1 font-medium mx-1">
-          3 startups
+          2 startups
         </span>
         where I led and
         <br className="hidden sm:block" />
@@ -48,7 +48,7 @@ export function HeroSection() {
       <p className="font-medium mb-6 sm:mb-8">
         I've also{" "}
         <span className="bg-[#F0FDFA] text-[#0F766E] px-1 font-medium">
-          won 3 hackathons.
+          won 2 hackathons.
         </span>
       </p>
 
@@ -63,7 +63,7 @@ export function HeroSection() {
       <p className="text-sm sm:text-base md:text-2xl text-gray-800 max-w-2xl mt-6 tracking-tight leading-normal">
         I'm open for new opportunities.
         <a
-       href="mailto:anamikaagg18@gmail.com"
+       href="mailto:prashantnishant80@gmail.com"
        className="bg-[#DBEAFE] text-[#1E40AF] px-2 py-1 ml-2 font-medium rounded-md hover:bg-opacity-90 transition-colors"
      >
        Contact Me

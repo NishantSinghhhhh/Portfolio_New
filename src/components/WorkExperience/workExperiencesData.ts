@@ -1,40 +1,31 @@
 import { WorkExperienceItem } from "./types"; 
 
 export const workExperiencesData: WorkExperienceItem[] = [
-   {
-      id: '1',
-      role: 'Software Developer Intern',
-      company: 'takeUforward',
-      period: 'Jun 2025 - Aug 2025',
-      companyLogo: '/work-experience/logos/tuf.png',
-      description: [
-        'Revamped a complex side panel into a clean, extensible experience the team can iterate on quickly.',
-        'Built Focus Mode, which users loved and which meaningfully improved the user\'s learning experience.',
-        'Led a POC for Debugger Mode for the C++ Editor by integrating GDB and Docker.'
-        ]
-    },
     {
       id: '2',
       role: 'Full Stack Developer Intern',
-      company: 'Mazinda',
-      period: 'Dec 2024 - Feb 2025',
-      companyLogo: '/work-experience/logos/mazinda.svg', 
+      company: 'RavenAI',
+      period: 'March 2025 - Present',
+      companyLogo: '/work-experience/logos/raven.jpeg', 
       description: [
-        'Engineered a delivery partner app with resumable onboarding and real-time GPS tracking, reducing order assignment time by 30%.',
-        'Centralized delivery operations by constructing an admin dashboard leveraging real-time geolocation data to monitor 200+ daily deliveries.',
-        'Built and optimized the order assignment backend, ensuring dynamic reassignment when a delivery partner rejects an order, maintaining alarm triggers.'
+        'Developed responsive, scalable frontend components using Next.js and React, ensuring seamless integration with backend APIs.',
+        'Improved overall system efficiency by reducing AI model prompt requests from 10 to 1 through prompt consolidation and smart request batching.',
+        'Implemented optimized rendering strategies: SSR for dynamic dashboards, SSG for static content (landing, FAQs), and CSR for high-interactivity modules.',
+        'Built a Chrome browser extension that converted YouTube videos into structured notes with intelligent content extraction.',
+        'Developed an AI-powered chat system backed by a Retrieval-Augmented Generation (RAG) pipeline, significantly improving answer accuracy.',
         ]
     },
     {
       id: '3',
       role: 'Full Stack Developer',
-      company: 'I am Better than me',
-      period: 'Sept 2024 - Dec 2024',
-      companyLogo: 'https://c.animaapp.com/m8nag6vuQg1Dnq/img/frame-217.svg', 
+      company: 'myAiMate',
+      period: 'November 2024 - January 2024',
+      companyLogo: '/work-experience/logos/my_ai_mate.png', 
       description: [
-        'Optimized backend performance by integrating Cloudinary for file uploads, reducing latency by 30%.',
-        'Architected real-time collaboration features using Socket.io and Mediasoup, enabling video conferencing for 100+ concurrent users.',
-        'Developed user authentication system with two-factor authentication via Twilio and Nodemailer, reducing failed login attempts by 40%.'
-        ]
+        'Built and deployed 3 full-fledged platforms during my internship — 2 focused on PDF editing, merging, and rendering dynamic results within the browser.',
+        'Led end-to-end development in the MERN stack, handling architecture, deployment, and team coordination as part of a hybrid Development + Management role.',
+        'Developed secure authentication with two-factor verification via Twilio and Nodemailer, reducing failed login attempts by 40%.'
+      ]
+
     }
 ];
